@@ -10,10 +10,19 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
+      - run: echo Pre Adios Bro
       - run: echo Adios Bro
+      - run: echo Post Adios Bro
 
 workflows:
-  hello:
+  workflow1:
     jobs:
       - saluda
       - despidete
+
+  workflow2:
+    jobs:
+      - saluda
+      - despidete:
+          requires:
+            - saluda
