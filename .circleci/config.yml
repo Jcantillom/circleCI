@@ -1,52 +1,18 @@
 version: 2.1
 
+parameters:
+  nombre:
+    type: string
+    default: QuillaOne
+
 jobs:
   saluda:
     docker:
       - image: cimg/base:stable
     steps:
-      - run: echo Hola Bro
-  despidete:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run: echo Pre Adios Bro
-      - run: echo Adios Bro
-      - run: echo Post Adios Bro
+      - run: echo Hola << pipeline.parameters.nombre >>
 
 workflows:
   workflow1:
     jobs:
       - saluda
-      - despidete
-
-  workflow2:
-    jobs:
-      - saluda
-      - despidete:
-          requires:
-            - saluda
-
-  workflow3:
-    jobs:
-      - saluda
-      - approval:
-          type: approval
-          requires:
-            - saluda
-      - despidete:
-          requires:
-            - approval
-
-  nightly:
-    triggers:
-      - schedule:
-          # que se ejeucte a las 11:22am hora colombia
-          cron: "40 17 * * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - saluda
-      - despidete
