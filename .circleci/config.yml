@@ -42,7 +42,7 @@ workflows:
     triggers:
       - schedule:
           # que se ejeucte a las 11:22am hora colombia
-          cron: "30 18 * * *"
+          cron: "10 17 * * *"
           filters:
             branches:
               only:
