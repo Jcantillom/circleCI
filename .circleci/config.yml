@@ -37,12 +37,12 @@ workflows:
       - despidete:
           requires:
             - approval
-  
+
   nightly:
     triggers:
       - schedule:
           # que se ejeucte a las 11:22am hora colombia
-          cron: "22 11 * * *"
+          cron: "26 16 * * *"
           filters:
             branches:
               only:
