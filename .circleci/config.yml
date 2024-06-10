@@ -1,18 +1,15 @@
 version: 2.1
 
-parameters:
-  nombre:
-    type: string
-    default: QuillaOne
-
 jobs:
   saluda:
     docker:
-      - image: cimg/base:stable
+      - image: ubuntu:latest
     steps:
-      - run: echoa Hola << pipeline.parameters.nombre >>
+      - run: echo Hola Bro
+        
 
 workflows:
-  workflow1:
+  saludo:
     jobs:
       - saluda
+      
