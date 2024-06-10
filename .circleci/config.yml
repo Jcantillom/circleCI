@@ -8,7 +8,7 @@ jobs:
       - run: echo Hola Bro
         
 workflows:
-  saludo:
+  saludo test:
     jobs:
       - saluda
       
