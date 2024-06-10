@@ -7,7 +7,6 @@ jobs:
     steps:
       - run: echo Hola Bro
         
-
 workflows:
   saludo:
     jobs:
